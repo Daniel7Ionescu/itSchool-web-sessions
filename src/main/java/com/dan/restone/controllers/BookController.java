@@ -14,17 +14,17 @@ public class BookController {
     //create REST APIs for CRUD for Book
     private final BookService bookService;
 
-    public BookController(BookService bookService){
+    public BookController(BookService bookService) {
         this.bookService = bookService;
     }
 
     @GetMapping()
-    public ResponseEntity<List<Book>> getAllBooks(){
+    public ResponseEntity<List<Book>> getAllBooks() {
         return ResponseEntity.ok(bookService.getAllBooks());
     }
 
     @PostMapping()
-    public ResponseEntity<Book> createBook(@RequestBody Book book){
+    public ResponseEntity<Book> createBook(@RequestBody Book book) {
         return ResponseEntity.ok(bookService.createBook(book));
     }
 }
