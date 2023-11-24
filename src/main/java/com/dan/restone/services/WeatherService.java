@@ -1,6 +1,6 @@
 package com.dan.restone.services;
 
-import com.dan.restone.models.Weather;
+import com.dan.restone.models.entities.Weather;
 
 import java.io.IOException;
 

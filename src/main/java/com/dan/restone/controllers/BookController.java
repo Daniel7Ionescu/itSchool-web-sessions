@@ -1,6 +1,6 @@
 package com.dan.restone.controllers;
 
-import com.dan.restone.models.Book;
+import com.dan.restone.models.entities.Book;
 import com.dan.restone.services.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
