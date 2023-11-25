@@ -1,6 +1,6 @@
 package com.dan.restone.controllers;
 
-import com.dan.restone.models.Weather;
+import com.dan.restone.models.entities.Weather;
 import com.dan.restone.services.WeatherService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

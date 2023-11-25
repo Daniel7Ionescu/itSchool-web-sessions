@@ -1,4 +1,4 @@
-package com.dan.restone.models;
+package com.dan.restone.models.entities;
 
 import lombok.Data;
 
