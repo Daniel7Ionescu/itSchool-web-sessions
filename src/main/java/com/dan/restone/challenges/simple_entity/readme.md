@@ -1,3 +1,17 @@
+### How to use
+
+#### sample postman create student : http://localhost:8080/api/students
+{
+"firstName" : "Kyle",
+"lastName" : "Broflovski",
+"email" : "superKyle@gmail.com",
+"age" : 21
+}
+
+#### trying out filtered from the repo: http://localhost:8080/api/students/filtered?age=20
+
+
+
 ### Entity Class Mapping
 - Create a simple Java entity class representing a domain object, such as "Student" or "Product". 
 - They should use Hibernate annotations to map the entity class to a corresponding database table.
