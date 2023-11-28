@@ -10,5 +10,4 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
     Student findByStudentId(Long id);
     List<Student> findByAgeGreaterThan(int age);
-
 }
