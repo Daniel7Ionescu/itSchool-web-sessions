@@ -12,6 +12,7 @@ public interface EmployeeService {
 
     EmployeeDTO assignLaptop(Long id);
 
+    EmployeeDTO  assignToProject(Long empId, Long projId);
 
 
 }

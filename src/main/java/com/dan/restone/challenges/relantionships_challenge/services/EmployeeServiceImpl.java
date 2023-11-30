@@ -1,9 +1,9 @@
 package com.dan.restone.challenges.relantionships_challenge.services;
 
 import com.dan.restone.challenges.relantionships_challenge.models.dtos.EmployeeDTO;
-import com.dan.restone.challenges.relantionships_challenge.models.dtos.LaptopDTO;
 import com.dan.restone.challenges.relantionships_challenge.models.entities.Employee;
 import com.dan.restone.challenges.relantionships_challenge.models.entities.Laptop;
+import com.dan.restone.challenges.relantionships_challenge.models.entities.Project;
 import com.dan.restone.challenges.relantionships_challenge.repositories.EmployeeRepository;
 
 import org.modelmapper.ModelMapper;
@@ -18,12 +18,14 @@ public class EmployeeServiceImpl implements EmployeeService{
     private final ModelMapper modelMapper;
 
     private final LaptopService laptopService;
+    private final ProjectService projectService;
 
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ModelMapper modelMapper, LaptopService laptopService) {
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ModelMapper modelMapper, LaptopService laptopService, ProjectService projectService) {
         this.employeeRepository = employeeRepository;
         this.modelMapper = modelMapper;
         this.laptopService = laptopService;
+        this.projectService = projectService;
     }
 
     @Override
@@ -57,6 +59,21 @@ public class EmployeeServiceImpl implements EmployeeService{
         laptopService.setLaptopAsAssigned(freeLaptop.getId());
 
         return modelMapper.map(employee, EmployeeDTO.class);
+    }
 
+    @Override
+    public EmployeeDTO assignToProject(Long empId, Long projId) {
+        //get target employee
+        Employee employee = employeeRepository.findById(empId).get();
+        //get project
+        Project project = projectService.getProject(projId);
+
+        employee.getProjects().add(project);
+        project.getEmployeeInProject().add(employee);
+
+        projectService.updateProject(project);
+        Employee savedEmployee = employeeRepository.save(employee);
+
+        return modelMapper.map(savedEmployee, EmployeeDTO.class);
     }
 }

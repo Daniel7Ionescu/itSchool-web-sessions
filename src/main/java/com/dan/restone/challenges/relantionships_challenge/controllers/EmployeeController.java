@@ -32,4 +32,9 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeService.assignLaptop(id));
     }
 
+    @PutMapping("/assignProject/{id}/{projId}")
+    public ResponseEntity<EmployeeDTO> assignToProject(@PathVariable Long id, @PathVariable Long projId){
+        return ResponseEntity.ok(employeeService.assignToProject(id, projId));
+    }
+
 }
