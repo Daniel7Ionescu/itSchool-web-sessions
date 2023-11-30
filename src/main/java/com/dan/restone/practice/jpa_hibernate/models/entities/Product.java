@@ -6,9 +6,9 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@Entity
-@Table(name = "products")
+//@Data
+//@Entity
+//@Table(name = "products")
 public class Product {
 
     @Id

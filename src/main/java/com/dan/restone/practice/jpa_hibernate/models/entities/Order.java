@@ -3,9 +3,9 @@ package com.dan.restone.practice.jpa_hibernate.models.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
-@Entity
-@Table(name = "orders")
+//@Data
+//@Entity
+//@Table(name = "orders")
 public class Order {
 
     @Id

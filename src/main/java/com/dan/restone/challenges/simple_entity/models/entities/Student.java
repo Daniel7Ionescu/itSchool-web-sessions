@@ -5,9 +5,9 @@ import lombok.Data;
 
 import java.sql.Date;
 
-@Data
-@Entity
-@Table(name = "students")
+//@Data
+//@Entity
+//@Table(name = "students")
 public class Student {
 
     @Id
