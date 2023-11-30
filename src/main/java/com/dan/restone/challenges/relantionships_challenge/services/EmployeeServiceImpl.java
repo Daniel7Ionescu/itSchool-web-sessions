@@ -1,14 +1,15 @@
 package com.dan.restone.challenges.relantionships_challenge.services;
 
 import com.dan.restone.challenges.relantionships_challenge.models.dtos.EmployeeDTO;
+import com.dan.restone.challenges.relantionships_challenge.models.dtos.LaptopDTO;
 import com.dan.restone.challenges.relantionships_challenge.models.entities.Employee;
+import com.dan.restone.challenges.relantionships_challenge.models.entities.Laptop;
 import com.dan.restone.challenges.relantionships_challenge.repositories.EmployeeRepository;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -16,10 +17,13 @@ public class EmployeeServiceImpl implements EmployeeService{
     private final EmployeeRepository employeeRepository;
     private final ModelMapper modelMapper;
 
+    private final LaptopService laptopService;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ModelMapper modelMapper) {
+
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, ModelMapper modelMapper, LaptopService laptopService) {
         this.employeeRepository = employeeRepository;
         this.modelMapper = modelMapper;
+        this.laptopService = laptopService;
     }
 
     @Override
@@ -39,23 +43,20 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public EmployeeDTO getEmployee(Long id) {
-        return modelMapper.map(getEmployeeById(id), EmployeeDTO.class);
-    }
-
-    @Override
     public EmployeeDTO assignLaptop(Long id) {
-        //assign a free laptop to an employee if he has none
-        Employee employee = getEmployeeById(id);
-        employee.setLaptop(laptopService.getFreeLaptop());
-        Employee savedEmployee = employeeRepository.save(employee);
+        //get free laptop
+        Laptop freeLaptop = laptopService.getFirstFreeLaptop();
+        //get target employee
+        Employee employee = employeeRepository.findById(id).get();
 
-        return modelMapper.map(savedEmployee, EmployeeDTO.class);
-    }
+        //update bro
+        employee.setLaptop(freeLaptop);
+        employeeRepository.save(employee);
 
-    private Employee getEmployeeById(Long id){
-        Optional<Employee> employee = employeeRepository.findById(id);
-        //add throw exception?
-        return employee.orElse(null);
+        //update laptop
+        laptopService.setLaptopAsAssigned(freeLaptop.getId());
+
+        return modelMapper.map(employee, EmployeeDTO.class);
+
     }
 }

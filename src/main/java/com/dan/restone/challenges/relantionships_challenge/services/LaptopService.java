@@ -9,4 +9,8 @@ public interface LaptopService {
 
     LaptopDTO createLaptop(LaptopDTO laptopDTO);
     List<LaptopDTO> getAllLaptops();
+
+    Laptop getFirstFreeLaptop();
+
+    void setLaptopAsAssigned(Long id);
 }

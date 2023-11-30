@@ -14,6 +14,12 @@ public class Laptop {
     @Column(name = "laptop_name")
     private String name;
 
-    @OneToOne
+    @Column(name = "free")
+    private boolean free;
+
+
+
+    @OneToOne(mappedBy = "laptop")
     private Employee employee;
+
 }

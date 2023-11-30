@@ -7,5 +7,5 @@
 
 ### Entities relationships
 - Employee - Laptop: one-to-one
-- Employee - Department: many-to-one
+- Employee - Department: one-to-many
 - Employee - Project: many-to-many

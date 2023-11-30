@@ -35,4 +35,15 @@ public class LaptopServiceImpl implements LaptopService{
                 .toList();
     }
 
+    @Override
+    public Laptop getFirstFreeLaptop() {
+        return laptopRepository.findFirstByFreeTrue();
+    }
+
+    @Override
+    public void setLaptopAsAssigned(Long id) {
+        Laptop laptop = laptopRepository.findById(id).get();
+        laptop.setFree(false);
+        laptopRepository.save(laptop);
+    }
 }

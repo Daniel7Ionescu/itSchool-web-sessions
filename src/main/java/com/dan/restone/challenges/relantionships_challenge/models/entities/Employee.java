@@ -14,4 +14,8 @@ public class Employee {
 
     @Column(name = "employee_name")
     private String name;
+
+    @OneToOne
+    @JoinColumn(name = "laptop_id", referencedColumnName = "id")
+    private Laptop laptop;
 }

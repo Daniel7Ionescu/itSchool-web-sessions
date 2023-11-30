@@ -7,4 +7,5 @@ public class LaptopDTO {
 
     private Long id;
     private String name;
+    private boolean free;
 }

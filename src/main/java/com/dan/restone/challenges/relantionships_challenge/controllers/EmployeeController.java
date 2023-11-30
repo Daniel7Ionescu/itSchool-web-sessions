@@ -27,4 +27,9 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeService.getAllEmployees());
     }
 
+    @PutMapping("/assignLaptop/{id}")
+    public ResponseEntity<EmployeeDTO> assignLaptop(@PathVariable Long id){
+        return ResponseEntity.ok(employeeService.assignLaptop(id));
+    }
+
 }

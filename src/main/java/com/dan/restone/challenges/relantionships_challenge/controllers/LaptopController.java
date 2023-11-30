@@ -17,6 +17,8 @@ public class LaptopController {
         this.laptopService = laptopService;
     }
 
+
+
     @PostMapping
     public ResponseEntity<LaptopDTO> createLaptop(@RequestBody LaptopDTO laptopDTO){
         return ResponseEntity.ok(laptopService.createLaptop(laptopDTO));
@@ -24,6 +26,12 @@ public class LaptopController {
 
     @GetMapping
     public ResponseEntity<List<LaptopDTO>> getAllLaptops(){
+
         return ResponseEntity.ok(laptopService.getAllLaptops());
     }
+
+//    @GetMapping("/test")
+//    public ResponseEntity<LaptopDTO> getFirstFreeLaptop(){
+//        return ResponseEntity.ok(laptopService.getFirstFreeLaptop());
+//    }
 }
