@@ -1,8 +1,8 @@
-package com.dan.restone.practice.services;
+package com.dan.restone.practice.jpa_hibernate.services;
 
-import com.dan.restone.practice.models.dtos.UserDTO;
-import com.dan.restone.practice.models.entities.User;
-import com.dan.restone.practice.repositories.UserRepository;
+import com.dan.restone.practice.jpa_hibernate.models.dtos.UserDTO;
+import com.dan.restone.practice.jpa_hibernate.models.entities.User;
+import com.dan.restone.practice.jpa_hibernate.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.dan.restone.practice.services;
+package com.dan.restone.practice.jpa_hibernate.services;
 
-import com.dan.restone.practice.models.entities.Book;
+import com.dan.restone.practice.jpa_hibernate.models.entities.Book;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
