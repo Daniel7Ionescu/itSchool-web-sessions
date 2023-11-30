@@ -1,7 +1,7 @@
-package com.dan.restone.practice.controllers;
+package com.dan.restone.practice.jpa_hibernate.controllers;
 
-import com.dan.restone.practice.models.entities.Book;
-import com.dan.restone.practice.services.BookService;
+import com.dan.restone.practice.jpa_hibernate.models.entities.Book;
+import com.dan.restone.practice.jpa_hibernate.services.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

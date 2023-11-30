@@ -1,7 +1,7 @@
-package com.dan.restone.practice.controllers;
+package com.dan.restone.practice.jpa_hibernate.controllers;
 
-import com.dan.restone.practice.models.entities.Weather;
-import com.dan.restone.practice.services.WeatherService;
+import com.dan.restone.practice.jpa_hibernate.models.entities.Weather;
+import com.dan.restone.practice.jpa_hibernate.services.WeatherService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

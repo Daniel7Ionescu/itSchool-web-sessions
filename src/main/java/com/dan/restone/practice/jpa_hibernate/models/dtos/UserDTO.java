@@ -1,4 +1,4 @@
-package com.dan.restone.practice.models.dtos;
+package com.dan.restone.practice.jpa_hibernate.models.dtos;
 
 import lombok.Data;
 

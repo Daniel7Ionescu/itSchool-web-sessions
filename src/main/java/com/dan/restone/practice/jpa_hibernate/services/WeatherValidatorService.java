@@ -1,4 +1,4 @@
-package com.dan.restone.practice.services;
+package com.dan.restone.practice.jpa_hibernate.services;
 
 public interface WeatherValidatorService {
 

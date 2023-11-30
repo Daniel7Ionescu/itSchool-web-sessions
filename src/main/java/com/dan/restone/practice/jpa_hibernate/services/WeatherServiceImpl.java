@@ -1,6 +1,6 @@
-package com.dan.restone.practice.services;
+package com.dan.restone.practice.jpa_hibernate.services;
 
-import com.dan.restone.practice.models.entities.Weather;
+import com.dan.restone.practice.jpa_hibernate.models.entities.Weather;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
