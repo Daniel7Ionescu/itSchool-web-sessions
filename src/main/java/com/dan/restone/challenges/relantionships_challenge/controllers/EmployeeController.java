@@ -1,6 +1,7 @@
 package com.dan.restone.challenges.relantionships_challenge.controllers;
 
 import com.dan.restone.challenges.relantionships_challenge.models.dtos.EmployeeDTO;
+import com.dan.restone.challenges.relantionships_challenge.models.entities.ProjectHelper;
 import com.dan.restone.challenges.relantionships_challenge.services.EmployeeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,9 +33,14 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeService.assignLaptop(id));
     }
 
-    @PutMapping("/assignProject/{id}/{projId}")
-    public ResponseEntity<EmployeeDTO> assignToProject(@PathVariable Long id, @PathVariable Long projId){
-        return ResponseEntity.ok(employeeService.assignToProject(id, projId));
+    @PutMapping("/assignProject/{id}")
+    public ResponseEntity<EmployeeDTO> assignToProject(@PathVariable Long id, @RequestBody ProjectHelper projectHelper){
+        return ResponseEntity.ok(employeeService.assignToProject(id, projectHelper.getProjId()));
     }
+
+//    @PutMapping("/assignProject/{id}/{projId}")
+//    public ResponseEntity<EmployeeDTO> assignToProject(@PathVariable Long id, @PathVariable Long projId){
+//        return ResponseEntity.ok(employeeService.assignToProject(id, projId));
+//    }
 
 }
