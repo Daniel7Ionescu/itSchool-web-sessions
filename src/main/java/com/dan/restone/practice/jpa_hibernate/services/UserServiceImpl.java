@@ -1,5 +1,6 @@
 package com.dan.restone.practice.jpa_hibernate.services;
 
+import com.dan.restone.practice.exceptions_practice.UserCreateException;
 import com.dan.restone.practice.jpa_hibernate.models.dtos.UserDTO;
 import com.dan.restone.practice.jpa_hibernate.models.entities.User;
 import com.dan.restone.practice.jpa_hibernate.repositories.UserRepository;
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService{
         //convert savedEntity to DTO
 
         if(userDTO.getFirstName().length() < 3) {
-            throw new IllegalArgumentException("Name too short");
+            throw new UserCreateException("Name too short");
         }
 
         //convert to entity
